@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Artist {
+  id          Int      @id @default(autoincrement())
+  name        String
+  imageUrl    String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  albums      Album[]
+  songs       Song[]
+
+  @@map("artists")
+}
+
+model Album {
+  id          Int      @id @default(autoincrement())
+  title       String
+  imageUrl    String?
+  releaseDate DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  artistId    Int
+  artist      Artist   @relation(fields: [artistId], references: [id], onDelete: Cascade)
+
+  songs       Song[]
+
+  @@map("albums")
+}
+
+model Genre {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  createdAt   DateTime @default(now())
+
+  songs       Song[]
+
+  @@map("genres")
+}
+
+model Song {
+  id          Int      @id @default(autoincrement())
+  title       String
+  audioUrl    String
+  imageUrl    String?
+  lyric       String?
+  duration    Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  artistId    Int
+  artist      Artist   @relation(fields: [artistId], references: [id], onDelete: Cascade)
+
+  albumId     Int?
+  album       Album?   @relation(fields: [albumId], references: [id], onDelete: SetNull)
+
+  genreId     Int?
+  genre       Genre?   @relation(fields: [genreId], references: [id], onDelete: SetNull)
+
+  @@map("songs")
+}
