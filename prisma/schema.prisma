@@ -53,6 +53,7 @@ model Song {
   audioUrl    String
   imageUrl    String?
   lyric       String?
+  musicType   String?
   duration    Int?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

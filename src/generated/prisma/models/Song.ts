@@ -48,6 +48,7 @@ export type SongMinAggregateOutputType = {
   audioUrl: string | null
   imageUrl: string | null
   lyric: string | null
+  musicType: string | null
   duration: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -62,6 +63,7 @@ export type SongMaxAggregateOutputType = {
   audioUrl: string | null
   imageUrl: string | null
   lyric: string | null
+  musicType: string | null
   duration: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -76,6 +78,7 @@ export type SongCountAggregateOutputType = {
   audioUrl: number
   imageUrl: number
   lyric: number
+  musicType: number
   duration: number
   createdAt: number
   updatedAt: number
@@ -108,6 +111,7 @@ export type SongMinAggregateInputType = {
   audioUrl?: true
   imageUrl?: true
   lyric?: true
+  musicType?: true
   duration?: true
   createdAt?: true
   updatedAt?: true
@@ -122,6 +126,7 @@ export type SongMaxAggregateInputType = {
   audioUrl?: true
   imageUrl?: true
   lyric?: true
+  musicType?: true
   duration?: true
   createdAt?: true
   updatedAt?: true
@@ -136,6 +141,7 @@ export type SongCountAggregateInputType = {
   audioUrl?: true
   imageUrl?: true
   lyric?: true
+  musicType?: true
   duration?: true
   createdAt?: true
   updatedAt?: true
@@ -237,6 +243,7 @@ export type SongGroupByOutputType = {
   audioUrl: string
   imageUrl: string | null
   lyric: string | null
+  musicType: string | null
   duration: number | null
   createdAt: Date
   updatedAt: Date
@@ -274,6 +281,7 @@ export type SongWhereInput = {
   audioUrl?: Prisma.StringFilter<"Song"> | string
   imageUrl?: Prisma.StringNullableFilter<"Song"> | string | null
   lyric?: Prisma.StringNullableFilter<"Song"> | string | null
+  musicType?: Prisma.StringNullableFilter<"Song"> | string | null
   duration?: Prisma.IntNullableFilter<"Song"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Song"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Song"> | Date | string
@@ -291,6 +299,7 @@ export type SongOrderByWithRelationInput = {
   audioUrl?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   lyric?: Prisma.SortOrderInput | Prisma.SortOrder
+  musicType?: Prisma.SortOrderInput | Prisma.SortOrder
   duration?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -311,6 +320,7 @@ export type SongWhereUniqueInput = Prisma.AtLeast<{
   audioUrl?: Prisma.StringFilter<"Song"> | string
   imageUrl?: Prisma.StringNullableFilter<"Song"> | string | null
   lyric?: Prisma.StringNullableFilter<"Song"> | string | null
+  musicType?: Prisma.StringNullableFilter<"Song"> | string | null
   duration?: Prisma.IntNullableFilter<"Song"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Song"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Song"> | Date | string
@@ -328,6 +338,7 @@ export type SongOrderByWithAggregationInput = {
   audioUrl?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   lyric?: Prisma.SortOrderInput | Prisma.SortOrder
+  musicType?: Prisma.SortOrderInput | Prisma.SortOrder
   duration?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -350,6 +361,7 @@ export type SongScalarWhereWithAggregatesInput = {
   audioUrl?: Prisma.StringWithAggregatesFilter<"Song"> | string
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Song"> | string | null
   lyric?: Prisma.StringNullableWithAggregatesFilter<"Song"> | string | null
+  musicType?: Prisma.StringNullableWithAggregatesFilter<"Song"> | string | null
   duration?: Prisma.IntNullableWithAggregatesFilter<"Song"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Song"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Song"> | Date | string
@@ -363,6 +375,7 @@ export type SongCreateInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -377,6 +390,7 @@ export type SongUncheckedCreateInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -390,6 +404,7 @@ export type SongUpdateInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -404,6 +419,7 @@ export type SongUncheckedUpdateInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -418,6 +434,7 @@ export type SongCreateManyInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -431,6 +448,7 @@ export type SongUpdateManyMutationInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -442,6 +460,7 @@ export type SongUncheckedUpdateManyInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -466,6 +485,7 @@ export type SongCountOrderByAggregateInput = {
   audioUrl?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   lyric?: Prisma.SortOrder
+  musicType?: Prisma.SortOrder
   duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -488,6 +508,7 @@ export type SongMaxOrderByAggregateInput = {
   audioUrl?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   lyric?: Prisma.SortOrder
+  musicType?: Prisma.SortOrder
   duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -502,6 +523,7 @@ export type SongMinOrderByAggregateInput = {
   audioUrl?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   lyric?: Prisma.SortOrder
+  musicType?: Prisma.SortOrder
   duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -657,6 +679,7 @@ export type SongCreateWithoutArtistInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -670,6 +693,7 @@ export type SongUncheckedCreateWithoutArtistInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -712,6 +736,7 @@ export type SongScalarWhereInput = {
   audioUrl?: Prisma.StringFilter<"Song"> | string
   imageUrl?: Prisma.StringNullableFilter<"Song"> | string | null
   lyric?: Prisma.StringNullableFilter<"Song"> | string | null
+  musicType?: Prisma.StringNullableFilter<"Song"> | string | null
   duration?: Prisma.IntNullableFilter<"Song"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Song"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Song"> | Date | string
@@ -725,6 +750,7 @@ export type SongCreateWithoutAlbumInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -738,6 +764,7 @@ export type SongUncheckedCreateWithoutAlbumInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -776,6 +803,7 @@ export type SongCreateWithoutGenreInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -789,6 +817,7 @@ export type SongUncheckedCreateWithoutGenreInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -828,6 +857,7 @@ export type SongCreateManyArtistInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -840,6 +870,7 @@ export type SongUpdateWithoutArtistInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -853,6 +884,7 @@ export type SongUncheckedUpdateWithoutArtistInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -866,6 +898,7 @@ export type SongUncheckedUpdateManyWithoutArtistInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -879,6 +912,7 @@ export type SongCreateManyAlbumInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -891,6 +925,7 @@ export type SongUpdateWithoutAlbumInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -904,6 +939,7 @@ export type SongUncheckedUpdateWithoutAlbumInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -917,6 +953,7 @@ export type SongUncheckedUpdateManyWithoutAlbumInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -930,6 +967,7 @@ export type SongCreateManyGenreInput = {
   audioUrl: string
   imageUrl?: string | null
   lyric?: string | null
+  musicType?: string | null
   duration?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -942,6 +980,7 @@ export type SongUpdateWithoutGenreInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -955,6 +994,7 @@ export type SongUncheckedUpdateWithoutGenreInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -968,6 +1008,7 @@ export type SongUncheckedUpdateManyWithoutGenreInput = {
   audioUrl?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lyric?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  musicType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -983,6 +1024,7 @@ export type SongSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   audioUrl?: boolean
   imageUrl?: boolean
   lyric?: boolean
+  musicType?: boolean
   duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1000,6 +1042,7 @@ export type SongSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   audioUrl?: boolean
   imageUrl?: boolean
   lyric?: boolean
+  musicType?: boolean
   duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1017,6 +1060,7 @@ export type SongSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   audioUrl?: boolean
   imageUrl?: boolean
   lyric?: boolean
+  musicType?: boolean
   duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1034,6 +1078,7 @@ export type SongSelectScalar = {
   audioUrl?: boolean
   imageUrl?: boolean
   lyric?: boolean
+  musicType?: boolean
   duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1042,7 +1087,7 @@ export type SongSelectScalar = {
   genreId?: boolean
 }
 
-export type SongOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "audioUrl" | "imageUrl" | "lyric" | "duration" | "createdAt" | "updatedAt" | "artistId" | "albumId" | "genreId", ExtArgs["result"]["song"]>
+export type SongOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "audioUrl" | "imageUrl" | "lyric" | "musicType" | "duration" | "createdAt" | "updatedAt" | "artistId" | "albumId" | "genreId", ExtArgs["result"]["song"]>
 export type SongInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
   album?: boolean | Prisma.Song$albumArgs<ExtArgs>
@@ -1072,6 +1117,7 @@ export type $SongPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     audioUrl: string
     imageUrl: string | null
     lyric: string | null
+    musicType: string | null
     duration: number | null
     createdAt: Date
     updatedAt: Date
@@ -1509,6 +1555,7 @@ export interface SongFieldRefs {
   readonly audioUrl: Prisma.FieldRef<"Song", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Song", 'String'>
   readonly lyric: Prisma.FieldRef<"Song", 'String'>
+  readonly musicType: Prisma.FieldRef<"Song", 'String'>
   readonly duration: Prisma.FieldRef<"Song", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Song", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Song", 'DateTime'>

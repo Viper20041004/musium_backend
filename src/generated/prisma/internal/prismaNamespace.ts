@@ -795,6 +795,7 @@ export const SongScalarFieldEnum = {
   audioUrl: 'audioUrl',
   imageUrl: 'imageUrl',
   lyric: 'lyric',
+  musicType: 'musicType',
   duration: 'duration',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
