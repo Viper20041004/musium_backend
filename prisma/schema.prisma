@@ -52,7 +52,7 @@ model Song {
   title       String
   audioUrl    String
   imageUrl    String?
-  lyric       String?
+  lyric String? @db.Text
   musicType   String?
   duration    Int?
   createdAt   DateTime @default(now())

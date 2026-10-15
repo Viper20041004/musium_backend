@@ -11,8 +11,13 @@ export class SongsController {
     return this.songsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.songsService.findOne(id);
+  // @Get(':id')
+  // findOne(@Param('id', ParseIntPipe) id: number) {
+  //   return this.songsService.findOne(id);
+  // }
+
+  @Get('search')
+  async search(@Query('q') q: string) {
+    return this.songsService.search(q);
   }
 }

@@ -70,4 +70,103 @@ export class SongsService {
       },
     });
   }
+
+  async search(query: string) {
+    const keyword = query.trim();
+
+    if (!keyword) {
+      return {
+        query: keyword,
+        data: {
+          songs: [],
+          artists: [],
+          albums: [],
+        },
+        meta: {
+          total: 0,
+        },
+      };
+    }
+
+    const [songs, artists, albums] = await Promise.all([
+      this.prisma.song.findMany({
+        where: {
+          OR: [
+            {
+              title: {
+                contains: keyword,
+                mode: 'insensitive',
+              },
+            },
+            {
+              artist: {
+                name: {
+                  contains: keyword,
+                  mode: 'insensitive',
+                },
+              },
+            },
+            {
+              album: {
+                title: {
+                  contains: keyword,
+                  mode: 'insensitive',
+                },
+              },
+            },
+          ],
+        },
+        include: {
+          artist: true,
+          album: true,
+          genre: true,
+        },
+        orderBy: {
+          title: 'asc',
+        },
+        take: 20,
+      }),
+
+      this.prisma.artist.findMany({
+        where: {
+          name: {
+            contains: keyword,
+            mode: 'insensitive',
+          },
+        },
+        take: 20,
+        orderBy: {
+          name: 'asc',
+        },
+      }),
+
+      this.prisma.album.findMany({
+        where: {
+          title: {
+            contains: keyword,
+            mode: 'insensitive',
+          },
+        },
+        take: 20,
+        orderBy: {
+          title: 'asc',
+        },
+      }),
+    ]);
+
+    return {
+      query: keyword,
+      data: {
+        songs,
+        artists,
+        albums,
+      },
+      meta: {
+        total: songs.length + artists.length + albums.length,
+        songs: songs.length,
+        artists: artists.length,
+        albums: albums.length,
+      },
+    };
+  }
 }
